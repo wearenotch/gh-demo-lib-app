@@ -1,0 +1,34 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.ag04'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+def props = new Properties()
+file(".env").withInputStream { props.load(it) }
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/dmadunic/test-lib")
+        credentials {
+            username = System.getenv("gh_username") ?: props.getProperty("gh_username")
+			password = System.getenv("gh_token") ?: props.getProperty("gh_token")
+        }
+    }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation "com.ag04.utils:test-lib:0.0.9"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
