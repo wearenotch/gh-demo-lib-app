@@ -15,7 +15,7 @@ gh_username=your_github_usernam
 gh_token=value_of_your_personall_access_token_with_access_to_public_repositories
 ```
 
-Once this is done project can bu built by issuing:
+Once this is done project can be built by running:
 ```bash
 ./gradlew clean bootJar
 ```
