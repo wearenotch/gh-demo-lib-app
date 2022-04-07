@@ -1,0 +1,30 @@
+name: CI Build
+on:
+  workflow_dispatch:
+env:
+  gh_username: "ghaction"
+  gh_token: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  build:
+    name: CI Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Validate Gradle wrapper
+      uses: gradle/wrapper-validation-action@v1.0.4
+
+    - name: Run tests
+      run: ./gradlew test
+
+    - name: Build target jar
+      run: ./gradlew bootJar
