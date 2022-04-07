@@ -9,7 +9,9 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 def props = new Properties()
-file(".env").withInputStream { props.load(it) }
+if (file(".env").exists()) {
+    file(".env").withInputStream { props.load(it) }
+}
 
 repositories {
     mavenCentral()
