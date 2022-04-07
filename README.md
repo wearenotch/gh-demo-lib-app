@@ -8,8 +8,16 @@ Demo spring boot application that consumes tes-lib.jar published in public GitHu
 
 # Usage
 
-To build this 
+To build this app localy, you need to create file named `.env` in the root folder with the following content:
+```
+gh_username=your_github_usernam
+gh_token=value_of_your_personall_access_token_with_access_to_public_repositories
+```
 
+Once this is done project can bu built by issuing:
+```bash
+./gradlew clean bootJar
+```
 
 # CI/CD
 
