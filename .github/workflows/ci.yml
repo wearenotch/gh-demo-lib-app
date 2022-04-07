@@ -1,9 +1,18 @@
+#==============================================================================
+# Manual CI action script.
+#  This script will run tests and build app jar.
+#
+# This script to work requires the following secrets to be defined:
+# - GH_ACCESS_TOKEN : Personal access token (PAT) with granted access to public repositories.
+#
+# (c) Agency04 2022 / Domagoj Madunić
+#=============================================================================
 name: CI Build
 on:
   workflow_dispatch:
 env:
   gh_username: "ghaction"
-  gh_token: ${{ secrets.GITHUB_TOKEN }}
+  gh_token: ${{ secrets.GH_ACCESS_TOKEN }}
 jobs:
   build:
     name: CI Build
