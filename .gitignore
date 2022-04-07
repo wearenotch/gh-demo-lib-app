@@ -84,4 +84,4 @@ Desktop.ini
 hs_err_pid*
 
 # hide github credentials
-.env
+#.env
