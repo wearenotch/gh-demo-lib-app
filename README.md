@@ -22,7 +22,7 @@ Once this is done project can be built by running:
 
 # CI/CD
 
-This project also contains is a simple github action script, **ci.yml**, that performs the following steps:
+This project also contains a simple github action script, **ci.yml**, that performs the following steps:
 - checkout
 - run tests
 - build spring boot jar
