@@ -17,7 +17,7 @@ repositories {
     mavenCentral()
     maven {
         name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/dmadunic/test-lib")
+        url = uri("https://maven.pkg.github.com/ag04/gh-demo-lib")
         credentials {
             username = System.getenv("gh_username") ?: props.getProperty("gh_username")
 			password = System.getenv("gh_token") ?: props.getProperty("gh_token")
@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation "com.ag04.utils:test-lib:0.0.9"
+	implementation "com.ag04.utils:gh-demo-lib:0.1.0"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
